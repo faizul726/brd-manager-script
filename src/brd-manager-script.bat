@@ -263,7 +263,7 @@ if %BRD_VERSION% equ %CURRENT_VERSION% (
     goto return
 )
 
-if %BRD_VERSION% equ %CURRENT_VERSION% (
+if %BRD_VERSION% lss %CURRENT_VERSION% (
     echo !YLW![*] Hmmmmmmm you somehow have a newer version of BRD that's not available online.!RST!
     echo Very sus ^>:^)
     echo.
@@ -370,4 +370,5 @@ echo Press any key to exit...
 pause >nul
 
 :option-5
+
 exit 
