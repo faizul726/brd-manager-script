@@ -5,13 +5,13 @@
 
 A companion batch script to be used for [BetterRenderDragon](https://github.com/QYCottage/BetterRenderDragon). 
 
-[![⭳ Download Fzul's BRD Manager](https://img.shields.io/github/downloads/faizul726/brd-manager-script/total?label=⭳%20Lifetime%20Downloads)](https://github.com/faizul726/brd-manager-script/download/releases/latest/brd-manager-script.bat)
-[![⭳ Download Fzul's BRD Manager](https://img.shields.io/github/v/tag/faizul726/brd-manager-script?label=Latest%20Version)](https://github.com/faizul726/brd-manager-script/download/releases/latest/brd-manager-script.bat)
+[![⭳ Download Fzul's BRD Manager](https://img.shields.io/github/downloads/faizul726/brd-manager-script/total?label=⭳%20Lifetime%20Downloads)](https://github.com/faizul726/brd-manager-script/releases/latest/download/brd-manager-script.bat)
+[![⭳ Download Fzul's BRD Manager](https://img.shields.io/github/v/tag/faizul726/brd-manager-script?label=Latest%20Version)](https://github.com/faizul726/brd-manager-script/releases/latest/download/brd-manager-script.bat)
 
 ![Fzul's BRD Manager Script screenshot](src/hero.png)
 
 ## How to use?
-1. Download script from [here](https://github.com/faizul726/brd-manager-script/download/releases/latest/brd-manager-script.bat) and double click it
+1. Download script from [here](https://github.com/faizul726/brd-manager-script/releases/latest/download/brd-manager-script.bat) and double click it
 2. Read what's on screen. (hint: Navigate using keyboard buttons)
 
 <!--
