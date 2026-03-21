@@ -1,9 +1,10 @@
 name: Create release
+run-name: 'Release: ${{ inputs.TAG }}'
 
 on:
   workflow_dispatch:
     inputs:
-      tag:
+      TAG:
         description: 'Release tag'
         required: true
         default: 'v2.'
@@ -24,6 +25,6 @@ jobs:
           gh release create \
           ${{ github.event.inputs.tag }} \
           "src/brd-manager-script.bat" \
-          --title "${{ github.event.inputs.tag }}" \
+          --title "${{ github.event.inputs.TAG }}" \
           --notes "Released on $(TZ='Asia/Dhaka' date +'%Y%m%d_%H%M') (UTC +06)" \
           
