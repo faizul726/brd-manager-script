@@ -5,7 +5,7 @@
 setlocal enabledelayedexpansion
 pushd "%~dp0"
 
-set "version=2.2"
+set "version=2.3"
 set "source_link=github.com/faizul726/brd-manager-script"
 
 title Fzul's BRD Manager Script v%version%
@@ -79,6 +79,8 @@ echo !GRN![1] Setup BRD
 echo !BLU![2] Update BRD
 echo !RED![3] Remove BRD
 echo.
+echo !WHT![4] Open WinHTTP config    [5] Open BRD config!RST!
+echo.
 
 echo !WHT![S] Settings    !RED![B] Exit!RST!
 echo.
@@ -92,7 +94,7 @@ if defined CURRENT_VERSION_NAME (
 )
 
 
-choice /c 123sb /n >nul
+choice /c 12345sb /n >nul
 
 call :option-!errorlevel!
 
@@ -310,9 +312,9 @@ if exist "%MCLOCATION%\config.ini" (
     echo.
 )
 
-if exist "%MCLOCATION%\mods\BetterRenderDragon\" (
-    rmdir /q /s "%MCLOCATION%\mods\BetterRenderDragon" >nul
-    echo !YLW![*] Deleted mods\BetterRenderDragon folder from "%MCLOCATION%"!RST!
+if exist "%APPDATA%\BetterRenderDragon\" (
+    rmdir /q /s "%APPDATA%\BetterRenderDragon" >nul
+    echo !YLW![*] Deleted BetterRenderDragon folder from "%APPDATA%"!RST!
     echo.
 )
 
@@ -326,8 +328,33 @@ echo.
 goto return
 exit /b
 
-
 :option-4
+:: Open config.ini of ModLoader
+if not exist "%MCLOCATION%\config.ini" (
+    cls
+    echo !YLW![^^!] File not found!RST!
+    echo !GRY!    Press any key to go back...!RST!
+
+    pause >nul
+    goto INIT
+)
+start /i /b "%MCLOCATION%\config.ini"
+goto INIT
+
+:option-5
+:: Open BetterRenderDragon.json of BRD
+if not exist "%APPDATA%\BetterRenderDragon\BetterRenderDragon.json" (
+    cls
+    echo !YLW![^^!] File not found!RST!
+    echo !GRY!    Press any key to go back...!RST!
+
+    pause >nul
+    goto INIT
+)
+start /i /b "%APPDATA%\BetterRenderDragon\BetterRenderDragon.json"
+goto INIT
+
+:option-6
 :settings_init
 set /p SCRIPT_CONFIG=<script_config.txt
 cls
@@ -369,6 +396,6 @@ echo.
 echo Press any key to exit...
 pause >nul
 
-:option-5
+:option-7
 
 exit 
