@@ -5,7 +5,7 @@
 setlocal enabledelayedexpansion
 pushd "%~dp0"
 
-set "version=2.3"
+set "version=2.4"
 set "source_link=github.com/faizul726/brd-manager-script"
 
 title Fzul's BRD Manager Script v%version%
@@ -18,7 +18,7 @@ set "WINHTTP_DLL=https://github.com/faizul726/ModLoader/releases/download/202511
 set "BRD_MIRROR=https://github.com/faizul726/brd-mirror/releases/latest"
 set /p SCRIPT_CONFIG=<script_config.txt
 
-set "BRD_FILENAME_0=BetterRenderDragon-no-imgui.dll"
+set "BRD_FILENAME_0=BetterRenderDragon.dll"
 set "BRD_FILENAME_1=BetterRenderDragon.dll"
 
 set "_versionString=!SCRIPT_CONFIG:~1!"
@@ -82,7 +82,7 @@ echo.
 echo !WHT![4] Open WinHTTP config    [5] Open BRD config!RST!
 echo.
 
-echo !WHT![S] Settings    !RED![B] Exit!RST!
+echo !RED![B] Exit!RST!
 echo.
 echo !YLW!Press corresponding key to select your choice!RST!
 echo.
@@ -94,7 +94,7 @@ if defined CURRENT_VERSION_NAME (
 )
 
 
-choice /c 12345sb /n >nul
+choice /c 12345b /n >nul
 
 call :option-!errorlevel!
 
@@ -354,36 +354,6 @@ if not exist "%APPDATA%\BetterRenderDragon\BetterRenderDragon.json" (
 start /i /b "%APPDATA%\BetterRenderDragon\BetterRenderDragon.json"
 goto INIT
 
-:option-6
-:settings_init
-set /p SCRIPT_CONFIG=<script_config.txt
-cls
-if "%SCRIPT_CONFIG:~0,1%" equ "0" (
-    set "settings_1="
-) else (
-    set "settings_1=1"
-)
-
-if defined settings_1 (set "toggle_1=!GRN![x]!RST!") else (set "toggle_1=!GRY![ ]!RST!")
-
-echo !RED!^< [B] Back!RST!
-echo.
-
-echo !toggle_1! 1. Download IMGUI version instead of NO_IMGUI
-echo.
-
-echo !YLW!Press corresponding number to select/toggle...!RST!
-choice /c 1b /n >nul
-if !errorlevel! equ 1 (
-    if defined settings_1 (set "value=0") else (set "value=1")
-    >script_config.txt echo !value!%SCRIPT_CONFIG:~1%
-    
-    goto settings_init
-)
-
-if !errorlevel! equ 2 (exit /b)
-
-
 :return
 echo Press any key to go back...
 pause >nul
@@ -396,6 +366,5 @@ echo.
 echo Press any key to exit...
 pause >nul
 
-:option-7
-
-exit 
+:option-6
+exit
